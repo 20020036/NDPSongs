@@ -7,7 +7,7 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-/*public class DBHelper extends SQLiteOpenHelper {
+public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "ndpsongs.db";
     private static final int DATABASE_VERSION = 1;
