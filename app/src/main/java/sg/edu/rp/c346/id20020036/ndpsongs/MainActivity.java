@@ -33,11 +33,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String data = etTitle.getText().toString() + "\n" + etSinger.getText().toString() + " - " + etYear.getText().toString();
                 DBHelper dbh = new DBHelper(MainActivity.this);
-                long inserted_id = dbh.insertSong(/*data*/);
+                long inserted_id = dbh.insertSong(data);
                 if(inserted_id != -1)
                 {
                     Toast.makeText(MainActivity.this, "Insert successful", Toast.LENGTH_LONG).show();
                 }
+                etTitle.setText("");
+                etSinger.setText("");
+                etYear.setText("");
             }
         });
 
@@ -49,5 +52,37 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private String getStars()
+    {
+        String stars = "⭐";
+        if(RadioGrp.getCheckedRadioButtonId() == R.id.radioButton)
+        {
+            stars = "⭐";
+        }
+        else if(RadioGrp.getCheckedRadioButtonId() == R.id.radioButton2)
+        {
+            stars = "⭐⭐";
+        }
+        else if(RadioGrp.getCheckedRadioButtonId() == R.id.radioButton3)
+        {
+            stars = "⭐⭐⭐";
+        }
+        else if(RadioGrp.getCheckedRadioButtonId() == R.id.radioButton4)
+        {
+            stars = "⭐⭐⭐⭐";
+        }
+        else if(RadioGrp.getCheckedRadioButtonId() == R.id.radioButton5)
+        {
+            stars = "⭐⭐⭐⭐⭐";
+        }
+        return stars;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        btnInsert.performClick();
     }
 }

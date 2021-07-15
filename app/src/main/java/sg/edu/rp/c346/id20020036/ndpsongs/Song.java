@@ -9,10 +9,10 @@ public class Song implements Serializable {
     private int id;
     private String title;
     private String singers;
-    private int year;
-    private int stars;
+    private String year;
+    private String stars;
 
-    public Song(int id, String title, String singers, int year, int stars)
+    public Song(int id, String title, String singers, String year, String stars)
     {
         this.id = id;
         this.title = title;
@@ -34,30 +34,28 @@ public class Song implements Serializable {
         return singers;
     }
 
-    public int getYear() {
-        return year;
-    }
+    public String getYear() { return year; }
 
-    public int getStars() {
+    public String getStars() {
         return stars;
     }
 
     @NonNull
     @Override
     public String toString() {
-        if(stars == 1)
+        if(stars == "⭐")
         {
             return  title + "\n" + singers + " - " + year + "\n⭐";
         }
-        else if(stars == 2)
+        else if(stars == "⭐⭐")
         {
             return  title + "\n" + singers + " - " + year + "\n⭐⭐";
         }
-        else if(stars == 3)
+        else if(stars == "⭐⭐⭐")
         {
             return  title + "\n" + singers + " - " + year + "\n⭐⭐⭐";
         }
-        else if(stars == 4)
+        else if(stars == "⭐⭐⭐⭐")
         {
             return  title + "\n" + singers + " - " + year + "\n⭐⭐⭐⭐";
         }
